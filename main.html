@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISCS</title>
+  <link rel="stylesheet" href="main.css">
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <header class="flexbox">
+    <div class="left-side">
+      <h2>FRESH · SNACKS · COLD CASE</h2>
+      <h1><span class="green">H</span>AIBUY <span class="green">M</span>ARKET</h1>
+      <p class="bottom-header">Fruits, vegetables, chips and cold drinks — one basket, one running tally.</p>
+    </div>
+
+    <div class="cart-status">
+      <span class="stat-label">ITEMS IN CART: </span>
+      <span class="stat-value" id="cart-count">0</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="shelf-section" aria-labelledby="shelf-toolbar">
+      <nav class="shelf-toolbar">
+        <button class="toolbar-btn active">ALL</button>
+        <button class="toolbar-btn">FRUITS</button>
+        <button class="toolbar-btn">VEGETABLES</button>
+        <button class="toolbar-btn">JUNK FOOD</button>
+        <button class="toolbar-btn">DRINKS</button>
+      </nav>
+
+      <div class="item-grid" id="fruits-grid">
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit1.png" alt="apple">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Apple</h4>
+          <p class="item-pcs">10pcs/pack</p>
+          <p class="item-price">₱269.95</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit2.png" alt="banana">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Banana</h4>
+          <p class="item-pcs">per bundle</p>
+          <p class="item-price">₱249.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit3.png" alt="strawberry">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Strawberries</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱450.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit4.png" alt="orange">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Orange</h4>
+          <p class="item-pcs">1pcs</p>
+          <p class="item-price">₱50.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit5.png" alt="watermelon">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Watermelon</h4>
+          <p class="item-pcs">1pc</p>
+          <p class="item-price">₱120.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit6.png" alt="pineapple">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Pineapple</h4>
+          <p class="item-pcs">1pc</p>
+          <p class="item-price">₱385.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit7.png" alt="green-grape">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Green Grape</h4>
+          <p class="item-pcs">per pack</p>
+          <p class="item-price">₱314.40</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit8.png" alt="avocado">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Avocado</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱190.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="fruits/images-fruit9.png" alt="dragon-fruit">
+            <span class="fruit-type">FRUIT</span>
+          </div>
+
+          <h4 class="item-name">Dragon fruit</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱290.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+      </div>
+
+<!------------------------------------------------------------------------------------------------------------>
+
+      <div class="item-grid" id="vegetables">
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="vegetable/image-vege1.png" alt="squash">
+            <span class="vege-type">VEGETABLE</span>
+          </div>
+
+          <h4 class="item-name">Squash</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱170.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="vegetable/image-vege2.png" alt="carrot">
+            <span class="vege-type">VEGETABLE</span>
+          </div>
+
+          <h4 class="item-name">Carrots</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱150.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="vegetable/image-vege3.png" alt="onion">
+            <span class="vege-type">VEGETABLE</span>
+          </div>
+
+          <h4 class="item-name">Red Onion</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱150.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="vegetable/image-vege4.png" alt="cabbage">
+            <span class="vege-type">VEGETABLE</span>
+          </div>
+
+          <h4 class="item-name">Cabbage</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱100.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="vegetable/image-vege5.png" alt="potato">
+            <span class="vege-type">VEGETABLE</span>
+          </div>
+
+          <h4 class="item-name">Potato</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱178.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="vegetable/image-vege6.png" alt="tomato">
+            <span class="vege-type">VEGETABLE</span>
+          </div>
+
+          <h4 class="item-name">Tomato</h4>
+          <p class="item-pcs">1kg</p>
+          <p class="item-price">₱209.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+      </div>
+
+<!------------------------------------------------------------------------------------------------------------>
+
+      <div class="item-grid" id="junk-food">
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf1.png" alt="piattos-cheese">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Piattos Cheese</h4>
+          <p class="item-pcs">85g</p>
+          <p class="item-price">₱39.15</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf2.png" alt="piattos-beef">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Piattos Roast Beef</h4>
+          <p class="item-pcs">85g</p>
+          <p class="item-price">₱40.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf3.png" alt="piattos-bbq">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Piattos Roadhouse Bbq</h4>
+          <p class="item-pcs">85g</p>
+          <p class="item-price">₱34.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf4.png" alt="Piattos-Spicy-Cheese">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Piattos Spicy Cheese</h4>
+          <p class="item-pcs">85g</p>
+          <p class="item-price">₱39.50</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf5.png" alt="Berry-knots">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Berry knots</h4>
+          <p class="item-pcs">28g</p>
+          <p class="item-price">₱8.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf6.png" alt="Choco-knots">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Choco knots</h4>
+          <p class="item-pcs">28g</p>
+          <p class="item-price">₱8.50 </p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf7.png" alt="Lay's-Cheddar&Sour-Cream">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Lay's Cheddar & Sour Cream</h4>
+          <p class="item-pcs">170g</p>
+          <p class="item-price">₱168.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf8.png" alt="lay's-classic">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Lay's Classic</h4>
+          <p class="item-pcs">170g</p>
+          <p class="item-price">₱199.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="junk-food/images-jf9.png" alt="Lay's-american-Style">
+            <span class="junk-type">JUNK FOOD</span>
+          </div>
+
+          <h4 class="item-name">Lay's american Style Cream and Onion</h4>
+          <p class="item-pcs">48g</p>
+          <p class="item-price">₱100</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>          
+        </article>
+      </div>
+
+<!------------------------------------------------------------------------------------------------------------>
+
+      <div class="item-grid" id="drink">
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink1.png" alt="mountain-dew">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Mountain Dew</h4>
+          <p class="item-pcs">330ml Can</p>
+          <p class="item-price">₱36.50</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink2.png" alt="pepsi">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Pepsi</h4>
+          <p class="item-pcs">330ml Can</p>
+          <p class="item-price">₱36.50</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink3.png" alt="schweppes1">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Schweppes Tonic Water</h4>
+          <p class="item-pcs">320ml Can</p>
+          <p class="item-price">₱41.50</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink4.png" alt="schweppes2">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Schweppes Sparkging Soda Water</h4>
+          <p class="item-pcs">330ml Can</p>
+          <p class="item-price">₱41.50</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink5.png" alt="rootbeer">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Mug Rootbeer Can</h4>
+          <p class="item-pcs">320ml Can</p>
+          <p class="item-price">₱36.50</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink6.png" alt="coke">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Coke Orig.</h4>
+          <p class="item-pcs">320ml Can</p>
+          <p class="item-price">₱39.30</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink7.png" alt="royal">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Royal - Tru-Orange</h4>
+          <p class="item-pcs">330ml Can</p>
+          <p class="item-price">₱34.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+
+        <article class="item-card">
+          <div class="top-article">
+            <img class="picture" src="drink/images-drink8.png" alt="sprite">
+            <span class="drink-type">DRINK</span>
+          </div>
+
+          <h4 class="item-name">Sprite</h4>
+          <p class="item-pcs">330ml Can</p>
+          <p class="item-price">₱38.00</p>
+
+          <div class="card-action">
+            <div class="stepper">
+              <button type="button" class="btn-minus">-</button>
+              <input type="number" class="stepper-input" value="1" min="0" max="100" readonly>
+              <button type="button" class="btn-add">+</button>
+            </div>
+            <button class="add-item">ADD</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+<!------------------------------------------------------------------------------------------------------------>
+    
+    <aside class="receipt-section">
+      <div class="receipt-card">
+        <div class="receipt-header">
+          <h3 class="receipt-title">HAIBUY MARKET</h3>
+          <p class="receipt-paragraph">FRESH · SNACKS · COLD CASE</p>
+          
+          <div class="receipt-meta">
+            <span id="receipt-date"></span>
+            <span id="receipt-number"></span>
+          </div>
+        </div>
+
+        <p class="receipt-divider"></p>
+        
+        <div class="receipt-body">
+          <div class="empty-state" id="empty-state">
+            <span class="scissors">✂</span>
+            <p class="empty-title">CART EMPTY — ADD ITEMS</p>
+            <p class="empty-sub">FROM THE SHELF TO START THE TAPE</p>
+          </div>
+
+          <div class="cart-list" id="cart-list" style="display: none;"></div>
+        </div>
+
+        <div class="receipt-summary" id="receipt-summary" style="display: none;">
+          <div class="receipt-divider"></div>
+          <div class="total-row">
+            <span>TOTAL</span>
+            <span id="cart-total">₱0.00</span>
+          </div>
+        </div>
+
+        <div class="receipt-footer">
+          <button type="button" class="checkout-btn" id="checkout-btn">CHECKOUT</button>
+          <p class="checkout-note">Quantities update live. Checkout opens your full receipt in a new tab.</p>
+        </div>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>
