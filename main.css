@@ -101,9 +101,14 @@ main{
   white-space: nowrap;
   cursor: pointer;
 }
-.toolbar-btn:hover{
+.toolbar-btn:not(.active):hover{
   border: 1px solid var(--accent);
   color:var(--text);
+}
+.toolbar-btn.active {
+  background-color: var(--accent);
+  color: var(--ink);
+  border-color: var(--accent);
 }
 
 .item-grid{
@@ -171,6 +176,12 @@ main{
   width: 2rem;
   color: var(--text);
   cursor: pointer;
+  text-align: center;
+}
+.stepper-input::-webkit-outer-spin-button,
+.stepper-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 .stepper .btn-minus{
   border: 1px solid var(--panel-line);
@@ -419,4 +430,54 @@ main{
   text-align: center;
   margin-top: 0.5rem;
   line-height: 1.3;
+}
+
+/* Phone Size */
+@media (max-width: 900px) {
+  body {
+    padding: 1rem !important;
+  }
+  .flexbox {
+    position: static;
+    padding: 1rem 0 !important;
+    width: 100%;
+  }
+  main {
+    margin: 1rem 0 0 0 !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2.5rem;
+    width: 100%;
+  }
+  .shelf-toolbar {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 0.5rem;
+  }
+  .shelf-section,
+  .item-card {
+    width: 100%;
+  }
+  .item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.85rem;
+    width: 100%;
+  }
+  
+  .receipt-section {
+    width: 100%;
+    max-width: 360px;
+    position: static;
+    margin: 0 auto;
+    border-left: none;
+    border-top: 1px dashed var(--panel-line);
+    padding-top: 2rem;
+  }
+  .receipt-card {
+    margin: 0 auto !important;
+  }
 }
