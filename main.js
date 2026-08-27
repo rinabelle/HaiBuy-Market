@@ -38,130 +38,92 @@ document.addEventListener("DOMContentLoaded", function() {
 
   let cart = [];
 
-  // Target DOM Elements
-  const cartList = document.querySelector('.cart-list');
-  const emptyState = document.querySelector('.empty-state');
-  const totalValueEl = document.querySelector('.total-row span:last-child');
-  const cartCountEl = document.getElementById('cart-count'); // Targets <span id="cart-count">
+  document.querySelectorAll('.item-card').forEach(card => {
+    const addItem = card.querySelector('.add-item');
+    const input = card.querySelector('.stepper-input');
 
-  // Add click handlers to all "ADD" buttons on product cards
-  document.querySelectorAll('.add-item').forEach(button => {
-    button.addEventListener('click', (e) => {
-      const card = e.target.closest('.item-card');
-      
-      // Extract data from card
-      const name = card.querySelector('.item-name').textContent.trim();
-      const priceText = card.querySelector('.item-price').textContent.trim();
-      const price = parseFloat(priceText.replace('₱', ''));
-      const quantityInput = card.querySelector('.stepper-input');
-      const qtyToAdd = parseInt(quantityInput.value);
+    if (addItem) {
+      addItem.addEventListener('click', () =>{
+        const itemName = card.querySelector('.item-name').textContent;
+        const itemPrice = parseFloat(card.querySelector('.item-price').textContent.replace('₱',''));
+        const quantity = parseInt(input ? input.value : 1) || 1;
 
-      // Check if item already exists in cart array
-      const existingItem = cart.find(item => item.name === name);
-
-      if (existingItem) {
-        existingItem.quantity += qtyToAdd;
-      } else {
-        cart.push({
-          name: name,
-          price: price,
-          quantity: qtyToAdd
-        });
-      }
-
-      // Reset card stepper input back to 1
-      quantityInput.value = 1;
-
-      // Update receipt UI and cart count
-      updateReceipt();
-    });
+        addToCart(itemName,itemPrice,quantity);
+      });
+    }
   });
 
-  // Function to render the receipt ticket and calculate totals
-  function updateReceipt() {
-    // Clear old list items
-    cartList.innerHTML = '';
-
-    // If cart is empty
-    if (cart.length === 0) {
-      if (emptyState) emptyState.style.display = 'flex';
-      if (totalValueEl) totalValueEl.textContent = '₱0.00';
-      if (cartCountEl) cartCountEl.textContent = '0';
-      return;
+  function addToCart(name, price, qty) {
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+      existingItem.qty += qty;
+    } else {
+      cart.push({ name, price, qty });
     }
 
-    // Hide empty placeholder
-    if (emptyState) emptyState.style.display = 'none';
-
-    let totalAmount = 0;
-    let totalItemsCount = 0;
-
-    // Loop through items in cart
-    cart.forEach((item, index) => {
-      const itemTotal = item.price * item.quantity;
-      totalAmount += itemTotal;
-      totalItemsCount += item.quantity;
-
-      // Build receipt item row element
-      const itemBlock = document.createElement('div');
-      itemBlock.classList.add('receipt-item-block');
-      itemBlock.innerHTML = `
-        <div class="item-line-top">
-          <span>${item.name}</span>
-          <span>₱${itemTotal.toFixed(2)}</span>
-        </div>
-        <div class="item-line-bottom">
-          <div class="mini-stepper">
-            <button class="mini-btn btn-receipt-minus" data-index="${index}">-</button>
-            <span class="mini-qty">${item.quantity}</span>
-            <button class="mini-btn btn-receipt-add" data-index="${index}">+</button>
-          </div>
-          <div class="item-unit-details">
-            <span>₱${item.price.toFixed(2)} ea</span>
-            <button class="btn-remove" data-index="${index}">×</button>
-          </div>
-        </div>
-      `;
-
-      cartList.appendChild(itemBlock);
-    });
-
-    // Update receipt total price and cart count header
-    if (totalValueEl) totalValueEl.textContent = `₱${totalAmount.toFixed(2)}`;
-    if (cartCountEl) cartCountEl.textContent = totalItemsCount;
-
-    // Attach listeners for interactive receipt buttons (+, -, remove)
-    attachReceiptEventListeners();
+    updateUI();
   }
 
-  // Handle receipt item quantity changes & removals
-  function attachReceiptEventListeners() {
-    document.querySelectorAll('.btn-receipt-add').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const index = e.target.getAttribute('data-index');
-        cart[index].quantity += 1;
-        updateReceipt();
-      });
-    });
+  function removeFromCart(name) {
+    cart = cart.filter(item => item.name !== name);
 
-    document.querySelectorAll('.btn-receipt-minus').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const index = e.target.getAttribute('data-index');
-        if (cart[index].quantity > 1) {
-          cart[index].quantity -= 1;
-        } else {
-          cart.splice(index, 1);
-        }
-        updateReceipt();
-      });
-    });
+    updateUI();
+  }
+  
+  function updateUI() {
+    const totalItemCount = cart.reduce((total, item) => total + item.qty, 0);
+    const cartCounter = document.getElementById('cart-count');
 
-    document.querySelectorAll('.btn-remove').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        const index = e.target.getAttribute('data-index');
-        cart.splice(index, 1);
-        updateReceipt();
+    if(cartCounter) {
+      cartCounter.textContent = `${totalItemCount}`;
+    }
+    updateReceiptUI();
+  }
+
+  function updateReceiptUI() {
+    const emptyState = document.getElementById('empty-state');
+    const cartList = document.getElementById('cart-list');
+    const receiptSummary = document.getElementById('receipt-summary');
+    const cartTotal = document.getElementById('cart-total');
+
+    if(cart.length === 0){
+      emptyState.style.display = 'block';
+      cartList.style.display = 'none';
+      receiptSummary.style.display = 'none';
+      return;
+    }
+    emptyState.style.display = 'none';
+    cartList.style.display = 'block';
+    receiptSummary.style.display = 'block';
+
+    let total = 0;
+    cartList.innerHTML = '';
+
+    cart.forEach(item => {
+      const itemTotal = item.price * item.qty;
+      total += itemTotal;
+
+      const itemRow = document.createElement('div');
+      itemRow.className = 'cart-item-row';
+      itemRow.style.cssText = 'display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;';
+
+      itemRow.innerHTML = `
+      <div class = "item-info">
+        <span class="item-name" style="font-weight: bold; display: block;">${item.name}</span>
+        <span style="font-size: 0.85em;">${item.qty} × ₱${item.price.toFixed(2)}</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span>₱${itemTotal.toFixed(2)}</span>
+        <button class="delete-btn" style="background: none; border: none; color: #ff4d4d; cursor: pointer; font-weight: bold;">✕</button>
+      </div>
+      `;
+
+      itemRow.querySelector('.delete-btn').addEventListener('click', () => {
+        removeFromCart(item.name);
       });
+      cartList.appendChild(itemRow);
     });
+    cartTotal.textContent = `₱${total.toFixed(2)}`;
   }
 });
